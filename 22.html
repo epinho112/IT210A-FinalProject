@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang= "en">
+    
+    <head>
+       
+<!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/business-casual.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+
+ <meta charset ="utf-8">
+        <title>Erik Pinho</title>
+        <meta name ="description" content = "Wiredwiki App">
+            <!-- Latest compiled and minified CSS -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+            <!-- Optional theme -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+            <link rel = "stylesheet" type="text/css" href = "stylesheet.css"/>    
+            <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+            <script src="2/bootstrap.js"></script>
+            
+            <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+           
+        
+       
+     
+    </head>
+    
+  
+
+    <body>
+    
+        
+    
+ <div class="brand">Erik Pinho</div>
+    <div class="address-bar">BYU IT student | Life lover</div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                <a class="navbar-brand" href="index.html">Danilo Marques</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="22.html">Endorsements</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+
+           
+        <div class ="jumbotron">
+            <section>
+                <div class="col-lg-12">
+                    <div>
+                        <h1 style = "color: white; margin-left: 30px">Endorsements.</h1>
+
+                    </div>
+                </div>
+                 
+            </section>  
+            
+              
+            <section>
+               
+               <div class="col-lg-12">
+                    <div class="text-center">
+                        <button type="button" class="btn btn-success" onclick="sortByName()">SORT BY NAME</button>
+                        <button type="button" class="btn btn-success" onclick="sortByDate()">SORT BY DATE</button>
+                         
+                         <p>People who have already endorsed me:</p>  
+                        
+                        <div class="container">
+                            <table class="table table-bordered" id="mytable">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Date</th>
+                                        <th>Endorsement</th>
+                                    </tr>
+                                </thead>
+                            </table>
+        
+                        </div>
+                 
+                </div>
+                
+                
+                
+                    
+               </div>
+                <div class= "text-center">
+                     <p>Enter name and date in the fields, then click "Submit" to submit the endorsement:</p>
+                         
+                    <form class="form-horizontal" onload="loadName()">
+                        <div class="col-xs-4">
+                            <label for="fName">Name: </label>
+                            <input type="text" onkeyup="saveName()" class="form-control" id="inputName">                    
+                        </div>
+                        <div class="col-xs-4">
+                            <label for="fDate">Date: </label>
+                            <input type="date" mouseout="saveName()" class="form-control" id="inputDate">
+                        
+                        </div>
+                        <div class="col-xs-4">
+                            <label for="fEndorse">Endorsement:</label>
+                                <textarea class="form-control" onkeyup="saveName()" rows="5" id="inputEndorse"></textarea>   
+                        </div>
+        
+                        
+                        <!-- Trigger the modal with a button -->
+                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Endorse</button>
+
+                        <!-- Modal -->
+                        <div id="myModal" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Are you sure?</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p style="color:black">If yes press submit button</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" onclick="submitFunction()" data-dismiss="modal">Submit</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                               
+                            </div>
+
+                            </div>
+                        </div>
+                    </form>
+            
+
+                
+                
+                </div>  
+                
+              
+                
+                
+                
+                
+        
+            </section>
+        
+        
+        </div><!----End of container--->
+        
+       
+      
+        <script src = "http://code.jquery.com/jquery-2.2.2.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <script src="javafile.js"></script>
+        
+     
+    </body>
+
+</html>
